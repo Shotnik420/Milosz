@@ -9,12 +9,11 @@ const Main = styled.div`
   padding-top: 10vh;
   width: 100vw;
   display: flex;
-
   align-items: center;
 `;
 
 const LP = styled.div`
-  width: 50vw;
+  width: 40vw;
   height: 100%;
 
   display: flex;
@@ -25,21 +24,21 @@ const LP = styled.div`
     font-size: 22vh;
   }
   & > p {
-    font-size: 5vh;
+    font-size: 4.5vh;
   }
 `;
 const PP = styled.div`
-  width: 50vw;
+  width: 60vw;
   height: 100%;
   background-size: 100% 100%;
 `;
 
 function Model(props) {
-  const { scene } = useGLTF("/gay.glb");
+  const { scene } = useGLTF("/dropout_bear.glb");
   return (
     <>
       <OrbitControls
-        maxPolarAngle={1.45}
+        maxPolarAngle={10}
         enabled={true}
         enableDamping={true}
         enablePan={false}
@@ -49,7 +48,7 @@ function Model(props) {
       />
       <PerspectiveCamera makeDefault fov={90} position={[0, 0, 5]} />
       <ambientLight />
-      <primitive object={scene} position={[-0.15, -3, 0]} {...props} />
+      <primitive object={scene} scale={4.5} position={[0, 3, 0]} {...props} />
     </>
   );
 }
@@ -63,7 +62,7 @@ export default function BigTitle() {
       </LP>
       <PP>
         <Suspense>
-          <Canvas shadows>
+          <Canvas shadows style={{ zIndex: 0 }}>
             <Model />
             <color attach="background" args={["white"]} />
           </Canvas>

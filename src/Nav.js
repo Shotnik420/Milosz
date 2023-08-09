@@ -17,6 +17,7 @@ const Main = styled.div`
     justify-content: space-around;
     align-items: center;
   }
+  z-index: 1;
 `;
 
 const Opcja = styled.div`

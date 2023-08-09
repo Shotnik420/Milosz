@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Nav from "./Nav";
 import Galeria from "./Galeria";
-import Overlay from "./Overlay";
+
 import BigTitle from "./BigTitle";
 import reportWebVitals from "./reportWebVitals";
 
@@ -13,7 +13,7 @@ root.render(
     <Nav />
     <BigTitle />
     <Galeria />
-    <Overlay />
+
   </React.StrictMode>
 );
 

@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import styled from "styled-components";
+import Overlay from "./Overlay";
+import { useState, useEffect } from "react";
 
 const Main = styled.div`
   min-height: 90vh;
@@ -9,6 +11,7 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   & > h1 {
     padding-top: 5vh;
     color: #222226;
@@ -74,28 +77,58 @@ const Middle = styled.article`
     user-select: none;
   }
 `;
-function klik() {}
+
 export default function Galeria() {
+  const [kontent, setKontent] = useState("");
+  const [pokaz, setPokaz] = useState(false);
+  function klik(x) {
+    setPokaz(true);
+    console.log(kontent);
+  }
+  // useEffect(()=>{
+  //   console.log("NIGGGAAA")
+  // }, kontent)
+  function close() {
+    setTimeout(() => {
+      setPokaz(false);
+    }, 500);
+  }
   return (
     <Main>
+      {pokaz && <Overlay fuck={close} bingo={kontent} />}
       <h1>Zdjęcia wydruków</h1>
       <p>Stuff shit napis hehe</p>
       <Grid>
-        <Kratka onClick={klik}>
+        <Kratka
+          onClick={() => {
+            setKontent(["JEDNO", "Drugie", "trzecie"]);
+            klik("zaczarowany burdel");
+          }}
+        >
           <img src="https://media.moddb.com/images/downloads/1/195/194882/ballas_logo_1.jpg" />
           <Middle>
             <h1>"Balas is so hot"</h1>
             <p>balas:</p>
           </Middle>
         </Kratka>
-        <Kratka onClick={klik}>
+        <Kratka
+          onClick={() => {
+            setKontent(["CZTERY", "PIĘĆ", "Sześć"]);
+            klik("zaczarowany burdel");
+          }}
+        >
           <img src="https://i0.wp.com/3d.edu.pl/wp-content/uploads/2020/04/Najmniejsze-wydruki-3D.jpg?fit=1560%2C854&ssl=1" />
           <Middle>
             <h1>Druk wieży </h1>
             <p>Całkiem mała</p>
           </Middle>
         </Kratka>
-        <Kratka onClick={klik}>
+        <Kratka
+          onClick={() => {
+            setKontent(["JEDNO", "Drugie", "trzecie"]);
+            klik("zaczarowany burdel");
+          }}
+        >
           <img src="https://techtutor.pl/wp-content/uploads/2016/02/wydruk-3d-Yody.jpg" />
           <Middle>
             <h1>Wydruk Yody</h1>
