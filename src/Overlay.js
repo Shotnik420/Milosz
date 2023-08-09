@@ -2,6 +2,7 @@ import logo from "./close.svg";
 import "./App.css";
 import { useState, Suspense } from "react";
 import styled, { keyframes } from "styled-components";
+import { BsArrowsMove } from "react-icons/bs";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 const Main = styled.div`
@@ -37,13 +38,17 @@ const Right = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+
   padding: 0 5vw;
   & > h1 {
     font-size: 7vh;
+    user-select: none;
   }
   & > p {
     margin-top: 5vh;
     font-size: 2.5vh;
+    user-select: none;
   }
 `;
 const UPPER = styled.div`
@@ -74,9 +79,9 @@ const CloseBelt = styled.div`
 
   justify-content: flex-end;
   & > img {
-    margin-right: 5vw;
     height: 5vh;
     width: 5vh;
+    user-select: none;
 
     cursor: pointer;
   }
@@ -93,6 +98,12 @@ const Przycisk = styled.button`
   src: url("Asimov.woff2") format("woff2"), url("Asimov.woff") format("woff");
   border: none;
   border-radius: 5vh;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export default function Overlay(props) {

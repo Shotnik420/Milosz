@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 const Main = styled.div`
   min-height: 90vh;
-
+  padding: 10vh 0;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -94,7 +94,7 @@ export default function Galeria() {
     setPokaz(false);
   }
   return (
-    <Main>
+    <Main className="jump">
       {pokaz && (
         <Overlay
           fuck={close}
@@ -104,8 +104,8 @@ export default function Galeria() {
           duze={skala}
         />
       )}
-      <h1>Zdjęcia wydruków</h1>
-      <p>Stuff shit napis hehe</p>
+      <h1>Twórczość</h1>
+      <p>Interaktywne modele & zdjęcia wydruków</p>
       <Grid>
         <Kratka
           onClick={() => {

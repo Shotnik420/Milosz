@@ -2,18 +2,24 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Nav from "./Nav";
-import Galeria from "./Galeria";
+import Footer from "./Footer";
+import Home from "./Home";
+import Kontakt from "./Kontakt";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import BigTitle from "./BigTitle";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Nav />
-    <BigTitle />
-    <Galeria />
-
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/kontakt" element={<Kontakt />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

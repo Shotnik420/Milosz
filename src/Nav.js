@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import { Link } from "react-router-dom";
 import "./App.css";
 import styled from "styled-components";
 
@@ -30,6 +30,7 @@ const Opcja = styled.div`
   color: black;
   cursor: pointer;
   transition: 300ms;
+  user-select: none;
   &:hover {
     transform: scale(0.8);
   }
@@ -42,21 +43,29 @@ const Logo = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 3vh;
+  cursor: pointer;
   & > h1 {
     font-weight: normal;
+    user-select: none;
   }
 `;
 
 function Nav() {
   return (
     <Main>
-      <Logo>
-        <h1>@miloszstrona</h1>
-      </Logo>
+      <Link to="/">
+        <Logo>
+          <h1>@miloszstrona</h1>
+        </Logo>
+      </Link>
       <ol>
-        <Opcja>Modele</Opcja>
+        <Link to="/">
+          <Opcja>Modele</Opcja>
+        </Link>
 
-        <Opcja>Kontakt</Opcja>
+        <Link to="/kontakt">
+          <Opcja>Kontakt</Opcja>
+        </Link>
       </ol>
     </Main>
   );
