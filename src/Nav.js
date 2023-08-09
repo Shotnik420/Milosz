@@ -54,8 +54,6 @@ function Nav() {
         <h1>@miloszstrona</h1>
       </Logo>
       <ol>
-        <Opcja>Galeria</Opcja>
-
         <Opcja>Modele</Opcja>
 
         <Opcja>Kontakt</Opcja>

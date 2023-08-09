@@ -80,53 +80,72 @@ const Middle = styled.article`
 
 export default function Galeria() {
   const [kontent, setKontent] = useState("");
+  const [sciezka, setSciezka] = useState("");
+  const [kamera, setKamera] = useState("");
+  const [skala, setSkala] = useState("");
   const [pokaz, setPokaz] = useState(false);
-  function klik(x) {
+  function klik() {
     setPokaz(true);
-    console.log(kontent);
   }
   // useEffect(()=>{
   //   console.log("NIGGGAAA")
   // }, kontent)
   function close() {
-    setTimeout(() => {
-      setPokaz(false);
-    }, 500);
+    setPokaz(false);
   }
   return (
     <Main>
-      {pokaz && <Overlay fuck={close} bingo={kontent} />}
+      {pokaz && (
+        <Overlay
+          fuck={close}
+          modelPath={sciezka}
+          bingo={kontent}
+          pozycja={kamera}
+          duze={skala}
+        />
+      )}
       <h1>Zdjęcia wydruków</h1>
       <p>Stuff shit napis hehe</p>
       <Grid>
         <Kratka
           onClick={() => {
-            setKontent(["JEDNO", "Drugie", "trzecie"]);
-            klik("zaczarowany burdel");
+            setKontent(["Dropout Bear", "Maskotka Kanyego Westa 2004-2007"]);
+            setSciezka("./dropout_bear.glb");
+            setKamera([0, 0, 5]);
+            setSkala(4.5);
+            klik();
           }}
         >
-          <img src="https://media.moddb.com/images/downloads/1/195/194882/ballas_logo_1.jpg" />
+          <img src="https://radiomilwaukee.wordpress.com/files/2008/08/kanyewestbear.jpg" />
           <Middle>
-            <h1>"Balas is so hot"</h1>
-            <p>balas:</p>
+            <h1>Dropout Bear</h1>
+            <p>Maskotka Kanyego Westa 2004-2007</p>
           </Middle>
         </Kratka>
         <Kratka
           onClick={() => {
-            setKontent(["CZTERY", "PIĘĆ", "Sześć"]);
-            klik("zaczarowany burdel");
+            setKontent([
+              "Chropki",
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            ]);
+            setSciezka("./chopek.glb");
+            setKamera([0, 0, 45]);
+            setSkala(1);
+            klik();
           }}
         >
-          <img src="https://i0.wp.com/3d.edu.pl/wp-content/uploads/2020/04/Najmniejsze-wydruki-3D.jpg?fit=1560%2C854&ssl=1" />
+          <img src="./chopki.png" />
           <Middle>
-            <h1>Druk wieży </h1>
-            <p>Całkiem mała</p>
+            <h1>Choprki</h1>
+            <p>Chopki/korki get it?</p>
           </Middle>
         </Kratka>
         <Kratka
           onClick={() => {
-            setKontent(["JEDNO", "Drugie", "trzecie"]);
-            klik("zaczarowany burdel");
+            setKontent(["JEDNO", "Drugie"]);
+            setSciezka("./chopek.glb");
+            setKamera([0, 0, 5]);
+            klik();
           }}
         >
           <img src="https://techtutor.pl/wp-content/uploads/2016/02/wydruk-3d-Yody.jpg" />
@@ -135,7 +154,13 @@ export default function Galeria() {
             <p>Całkiem fajny</p>
           </Middle>
         </Kratka>
-        <Kratka onClick={klik}>
+        <Kratka
+          onClick={() => {
+            setKontent(["JEDNO", "Drugie"]);
+            setSciezka("./dropout_bear.glb");
+            klik();
+          }}
+        >
           <img src="https://techtutor.pl/wp-content/uploads/2016/02/wydruki-3d-prototyp%C3%B3w-nakr%C4%99tka.jpg" />
           <Middle>
             <h1>Kanye</h1>
@@ -143,7 +168,13 @@ export default function Galeria() {
           </Middle>
         </Kratka>
 
-        <Kratka onClick={klik}>
+        <Kratka
+          onClick={() => {
+            setKontent(["JEDNO", "Drugie"]);
+            setSciezka("./dropout_bear.glb");
+            klik();
+          }}
+        >
           <img src="https://bi.im-g.pl/im/69/fb/1b/z29342825AMP,Kanye-West-.jpg" />
           <Middle>
             <h1>Kanye</h1>

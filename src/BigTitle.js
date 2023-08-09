@@ -13,7 +13,7 @@ const Main = styled.div`
 `;
 
 const LP = styled.div`
-  width: 40vw;
+  width: 50vw;
   height: 100%;
 
   display: flex;
@@ -28,7 +28,7 @@ const LP = styled.div`
   }
 `;
 const PP = styled.div`
-  width: 60vw;
+  width: 50vw;
   height: 100%;
   background-size: 100% 100%;
 `;
@@ -48,6 +48,7 @@ function Model(props) {
       />
       <PerspectiveCamera makeDefault fov={90} position={[0, 0, 5]} />
       <ambientLight />
+      <pointLight position={[10, 10, 0]} intensity={1.5} />
       <primitive object={scene} scale={4.5} position={[0, 3, 0]} {...props} />
     </>
   );
