@@ -32,7 +32,7 @@ const Opcja = styled.div`
   transition: 300ms;
   user-select: none;
   &:hover {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
 `;
 const Logo = styled.div`

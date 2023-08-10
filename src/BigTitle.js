@@ -31,6 +31,7 @@ const PP = styled.div`
   width: 50vw;
   height: 100%;
   background-size: 100% 100%;
+  cursor: grab;
 `;
 
 function Model(props) {

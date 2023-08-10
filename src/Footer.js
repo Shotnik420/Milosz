@@ -1,25 +1,35 @@
 import logo from "./logo.svg";
 import "./App.css";
 import styled from "styled-components";
-import { BsYoutube } from "react-icons/bs";
-import { AiFillInstagram } from "react-icons/ai";
+import { AiOutlineYoutube, AiOutlineInstagram } from "react-icons/ai";
 const Main = styled.div`
   height: 15vh;
   background-color: #fff;
-  width: 100vw;
+  width: 30vw;
+  padding: 0 35vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   border-top: 2px #000 solid;
   z-index: 1;
   font-size: 2vh;
   align-items: center;
+  & > h1 {
+    font-weight: normal;
+  }
+  & > svg {
+    transition: 300ms;
+  }
+  & > svg:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 `;
 
 function Footer() {
   return (
     <Main>
-      <BsYoutube style={{ height: "100%" }} />
-      <AiFillInstagram style={{ height: "100%" }} />
+      <AiOutlineInstagram style={{ fontSize: "5vh" }} />
+      <AiOutlineYoutube style={{ fontSize: "5vh" }} />
       <h1>Miłosz Nowak © 2023</h1>
     </Main>
   );

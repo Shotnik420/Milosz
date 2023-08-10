@@ -140,47 +140,6 @@ export default function Galeria() {
             <p>Chopki/korki get it?</p>
           </Middle>
         </Kratka>
-        <Kratka
-          onClick={() => {
-            setKontent(["JEDNO", "Drugie"]);
-            setSciezka("./chopek.glb");
-            setKamera([0, 0, 5]);
-            klik();
-          }}
-        >
-          <img src="https://techtutor.pl/wp-content/uploads/2016/02/wydruk-3d-Yody.jpg" />
-          <Middle>
-            <h1>Wydruk Yody</h1>
-            <p>Całkiem fajny</p>
-          </Middle>
-        </Kratka>
-        <Kratka
-          onClick={() => {
-            setKontent(["JEDNO", "Drugie"]);
-            setSciezka("./dropout_bear.glb");
-            klik();
-          }}
-        >
-          <img src="https://techtutor.pl/wp-content/uploads/2016/02/wydruki-3d-prototyp%C3%B3w-nakr%C4%99tka.jpg" />
-          <Middle>
-            <h1>Kanye</h1>
-            <p>I love him</p>
-          </Middle>
-        </Kratka>
-
-        <Kratka
-          onClick={() => {
-            setKontent(["JEDNO", "Drugie"]);
-            setSciezka("./dropout_bear.glb");
-            klik();
-          }}
-        >
-          <img src="https://bi.im-g.pl/im/69/fb/1b/z29342825AMP,Kanye-West-.jpg" />
-          <Middle>
-            <h1>Kanye</h1>
-            <p>I love him</p>
-          </Middle>
-        </Kratka>
       </Grid>
     </Main>
   );

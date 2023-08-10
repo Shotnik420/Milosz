@@ -31,6 +31,7 @@ const appear2 = keyframes`
 const Left = styled.div`
   height: 100vh;
   width: 45vw;
+  cursor: grab;
 `;
 const Right = styled.div`
   height: 100vh;
