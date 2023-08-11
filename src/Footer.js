@@ -23,6 +23,14 @@ const Main = styled.div`
     transform: scale(1.1);
     cursor: pointer;
   }
+  @media only screen and (max-width: 450px) {
+    font-size: 1.2vh;
+    padding: 0 10vw;
+    width: 80vw;
+    & > h1 {
+      font-weight: bold;
+    }
+  }
 `;
 
 function Footer() {

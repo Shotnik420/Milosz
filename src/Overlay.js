@@ -32,10 +32,14 @@ const Left = styled.div`
   height: 100vh;
   width: 45vw;
   cursor: grab;
+  @media only screen and (max-width: 450px) {
+    width: 100%;
+    height: 32vh;
+  }
 `;
 const Right = styled.div`
   height: 100vh;
-  width: 35vw;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -51,6 +55,13 @@ const Right = styled.div`
     font-size: 2.5vh;
     user-select: none;
   }
+
+  @media only screen and (max-width: 450px) {
+    & > h1 {
+      font-size: 5vh;
+      user-select: none;
+    }
+  }
 `;
 const UPPER = styled.div`
   height: 100vh;
@@ -61,6 +72,9 @@ const UPPER = styled.div`
   background-color: white;
   align-items: center;
   animation: ${appear} 500ms ease-in;
+  @media only screen and (max-width: 450px) {
+    flex-direction: column;
+  }
 `;
 const BACK = styled.div`
   height: 100vh;
@@ -73,6 +87,23 @@ const BACK = styled.div`
   animation: ${appear2} 500ms ease-in;
 `;
 
+const CloseBelt2 = styled.div`
+  width: 100%;
+  height: 8vh;
+  display: none;
+
+  justify-content: flex-end;
+  & > img {
+    height: 5vh;
+    width: 5vh;
+    user-select: none;
+
+    cursor: pointer;
+  }
+  @media only screen and (max-width: 450px) {
+    display: flex;
+  }
+`;
 const CloseBelt = styled.div`
   width: 100%;
   height: 8vh;
@@ -86,8 +117,10 @@ const CloseBelt = styled.div`
 
     cursor: pointer;
   }
+  @media only screen and (max-width: 450px) {
+    display: none;
+  }
 `;
-
 const Przycisk = styled.button`
   height: 7vh;
   width: 30vw;
@@ -104,6 +137,9 @@ const Przycisk = styled.button`
   transition: 0.3s;
   &:hover {
     transform: scale(1.1);
+  }
+  @media only screen and (max-width: 450px) {
+    width: 50vw;
   }
 `;
 
@@ -143,6 +179,14 @@ export default function Overlay(props) {
       />
       <UPPER>
         <Left>
+          <CloseBelt2
+            onClick={() => {
+              setActive(false);
+              props.fuck();
+            }}
+          >
+            <img src={logo} />
+          </CloseBelt2>
           <Suspense>
             <Canvas shadows style={{ zIndex: 0 }}>
               <ModelView receiveShadow />

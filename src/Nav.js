@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Main = styled.div`
   height: 10vh;
+  overflow-x: hidden;
   background-color: #fff;
   width: 100vw;
   display: flex;
@@ -17,7 +18,13 @@ const Main = styled.div`
     justify-content: space-around;
     align-items: center;
   }
+
   z-index: 1;
+  @media only screen and (max-width: 450px) {
+    & > ol > a:first-child {
+      display: none;
+    }
+  }
 `;
 
 const Opcja = styled.div`
@@ -34,6 +41,9 @@ const Opcja = styled.div`
   &:hover {
     transform: scale(0.9);
   }
+  @media only screen and (max-width: 450px) {
+    font-size: 3vh;
+  }
 `;
 const Logo = styled.div`
   color: black;
@@ -47,6 +57,10 @@ const Logo = styled.div`
   & > h1 {
     font-weight: normal;
     user-select: none;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 2vh;
+    width: 65vw;
   }
 `;
 

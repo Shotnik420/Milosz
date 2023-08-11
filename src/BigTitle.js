@@ -10,6 +10,10 @@ const Main = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 450px) {
+    height: 110vh;
+    flex-direction: column-reverse;
+  }
 `;
 
 const LP = styled.div`
@@ -26,12 +30,36 @@ const LP = styled.div`
   & > p {
     font-size: 4.5vh;
   }
+  @media only screen and (max-width: 1300px) {
+    & > h1 {
+      font-size: 20vh;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    & > h1 {
+      font-size: 16vh;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    width: 100vw;
+    text-align: center;
+    padding-left: 0%;
+    & > h1 {
+      font-size: 11vh;
+    }
+    & > p {
+      font-size: 2.5vh;
+    }
+  }
 `;
 const PP = styled.div`
   width: 50vw;
   height: 100%;
   background-size: 100% 100%;
   cursor: grab;
+  @media only screen and (max-width: 450px) {
+    width: 100vw;
+  }
 `;
 
 function Model(props) {

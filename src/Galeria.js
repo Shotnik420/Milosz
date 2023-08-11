@@ -24,6 +24,17 @@ const Main = styled.div`
     font-size: 3vh;
     padding: 4vh 0;
   }
+  @media only screen and (max-width: 450px) {
+    padding: 3vh 0;
+    & > h1 {
+      font-size: 7vh;
+      text-align: center;
+    }
+    & > p {
+      text-align: center;
+      font-size: 3vh;
+    }
+  }
 `;
 const Grid = styled.div`
   width: 80vw;
@@ -33,6 +44,9 @@ const Grid = styled.div`
   grid-template-rows: auto;
   grid-gap: 5vh;
   margin-top: 5vh;
+  @media only screen and (max-width: 450px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const Kratka = styled.div`
   height: 35vh;
