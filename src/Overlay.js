@@ -14,6 +14,11 @@ const Main = styled.div`
   z-index: 2;
 
   top: 0;
+  @media only screen and (max-width: 450px) {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 `;
 
 const appear = keyframes`
@@ -29,23 +34,24 @@ const appear2 = keyframes`
 `;
 
 const Left = styled.div`
-  height: 100vh;
+  height: 100%;
   width: 45vw;
   cursor: grab;
   @media only screen and (max-width: 450px) {
     width: 100%;
-    height: 32vh;
+    height: 40%;
   }
 `;
 const Right = styled.div`
-  height: 100vh;
-  width: 80vw;
+  height: 100%;
+  width: 45vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
   padding: 0 5vw;
+
   & > h1 {
     font-size: 7vh;
     user-select: none;
@@ -57,6 +63,8 @@ const Right = styled.div`
   }
 
   @media only screen and (max-width: 450px) {
+    height: 50%;
+    width: 80vw;
     & > h1 {
       font-size: 5vh;
       user-select: none;
@@ -72,8 +80,11 @@ const UPPER = styled.div`
   background-color: white;
   align-items: center;
   animation: ${appear} 500ms ease-in;
+  justify-content: space-between;
   @media only screen and (max-width: 450px) {
     flex-direction: column;
+    margin-left: 0vw;
+    height: 90vh;
   }
 `;
 const BACK = styled.div`

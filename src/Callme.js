@@ -25,6 +25,10 @@ const Main = styled.div`
     font-size: 3vh;
     padding: 4vh 0;
   }
+  @media only screen and (max-width: 450px) {
+    height: 100vh;
+    flex-direction: column;
+  }
 `;
 
 const LP = styled.div`
@@ -47,6 +51,20 @@ const LP = styled.div`
   & > ol > li > p {
     margin-left: 3vw;
   }
+  @media only screen and (max-width: 450px) {
+    width: 100vw;
+    justify-content: flex-end;
+    & > ol {
+      width: 100vw;
+    }
+    & > ol > li {
+      font-size: 3vh;
+      padding: 1vh 5vw;
+    }
+    & > ol > li > svg {
+      font-size: 6vh;
+    }
+  }
 `;
 const PP = styled.div`
   width: 40vw;
@@ -54,6 +72,14 @@ const PP = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media only screen and (max-width: 450px) {
+    align-items: center;
+    width: 100vw;
+    height: 70vh;
+    & > iframe {
+      height: 100%;
+    }
+  }
 `;
 
 export default function Callme() {

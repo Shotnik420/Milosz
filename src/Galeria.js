@@ -74,7 +74,8 @@ const Kratka = styled.div`
 const Middle = styled.article`
   transition: 0.5s ease;
   opacity: 0;
-  width: 25vw;
+  width: 20vw;
+  padding: 0 2.5vw;
   height: 10vh;
   position: relative;
   bottom: 15vh;
@@ -89,6 +90,10 @@ const Middle = styled.article`
   & > p {
     font-size: 2.5vh;
     user-select: none;
+  }
+  @media only screen and (max-width: 450px) {
+    width: 70vw;
+    padding: 0 5vw;
   }
 `;
 
@@ -140,7 +145,7 @@ export default function Galeria() {
           onClick={() => {
             setKontent([
               "Chropki",
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+              "Lorem iplaatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             ]);
             setSciezka("./chopek.glb");
             setKamera([0, 0, 45]);
@@ -151,7 +156,7 @@ export default function Galeria() {
           <img src="./chopki.png" />
           <Middle>
             <h1>Choprki</h1>
-            <p>Chopki/korki get it?</p>
+            <p>CHUJ</p>
           </Middle>
         </Kratka>
       </Grid>
