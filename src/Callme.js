@@ -77,7 +77,7 @@ const PP = styled.div`
     width: 100vw;
     height: 70vh;
     & > iframe {
-      height: 100%;
+      height: 70%;
     }
   }
 `;
