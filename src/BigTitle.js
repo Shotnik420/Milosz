@@ -24,11 +24,13 @@ const LP = styled.div`
   padding-left: 3%;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   & > h1 {
     font-size: 22vh;
   }
   & > p {
-    font-size: 4.5vh;
+    font-size: 2.5rem;
+    margin-top: 5vh;
   }
   @media only screen and (max-width: 1300px) {
     & > h1 {
@@ -63,7 +65,7 @@ const PP = styled.div`
 `;
 
 function Model(props) {
-  const { scene } = useGLTF("/dropout_bear.glb");
+  const { scene } = useGLTF("/zen.glb");
   return (
     <>
       <OrbitControls
@@ -77,8 +79,9 @@ function Model(props) {
       />
       <PerspectiveCamera makeDefault fov={90} position={[0, 0, 5]} />
       <ambientLight />
-      <pointLight position={[10, 10, 0]} intensity={1.5} />
-      <primitive object={scene} scale={4.5} position={[0, 3, 0]} {...props} />
+      <pointLight position={[10, 0, 5]} intensity={1.5} />
+      <pointLight position={[-10, 0, -5]} intensity={1.5} />
+      <primitive object={scene} scale={7} position={[0, 0, 0]} {...props} />
     </>
   );
 }
@@ -87,8 +90,8 @@ export default function BigTitle() {
   return (
     <Main>
       <LP>
-        <h1>MIŁOSZ NOWAK</h1>
-        <p>3D DESIGN, MODELING & PRINTING</p>
+        <h1>ZENLAB</h1>
+        <p>DRUK 3D, MODELOWANIE I GRAWEROWANIE</p>
       </LP>
       <PP>
         <Suspense>

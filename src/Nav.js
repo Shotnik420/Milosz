@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "./App.css";
+import { order } from "./Galeria";
 import styled from "styled-components";
 
+import { HashLink } from "react-router-hash-link";
 const Main = styled.div`
   height: 10vh;
   overflow-x: hidden;
@@ -11,11 +13,12 @@ const Main = styled.div`
   position: fixed;
   justify-content: space-between;
   border-bottom: 2px #000 solid;
+  z-index: 10 !important;
   & > ol {
     display: flex;
-    width: 50vw;
+    width: 70vw;
 
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
   }
 
@@ -38,6 +41,7 @@ const Opcja = styled.div`
   cursor: pointer;
   transition: 300ms;
   user-select: none;
+  margin-right: 5vw;
   &:hover {
     transform: scale(0.9);
   }
@@ -69,14 +73,13 @@ function Nav() {
     <Main>
       <Link to="/">
         <Logo>
-          <h1>@miloszstrona</h1>
+          <h1>@zenlab</h1>
         </Logo>
       </Link>
       <ol>
-        <Link to="/">
-          <Opcja>Modele</Opcja>
-        </Link>
-
+        <HashLink to="/#jump">
+          <Opcja>Portfolio</Opcja>
+        </HashLink>
         <Link to="/kontakt">
           <Opcja>Kontakt</Opcja>
         </Link>

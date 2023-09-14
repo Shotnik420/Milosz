@@ -2,7 +2,7 @@ import logo from "./close.svg";
 import "./App.css";
 import { useState, Suspense } from "react";
 import styled, { keyframes } from "styled-components";
-import { BsArrowsMove } from "react-icons/bs";
+import { BiCube, BiImageAlt } from "react-icons/bi";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 const Main = styled.div`
@@ -11,7 +11,7 @@ const Main = styled.div`
 
   width: 100vw;
   position: fixed;
-  z-index: 2;
+  z-index: 11;
 
   top: 0;
   @media only screen and (max-width: 450px) {
@@ -23,7 +23,7 @@ const Main = styled.div`
 
 const appear = keyframes`
     from{
-      margin-top: 10vh;
+      
       opacity: 0;
     }
 `;
@@ -35,8 +35,17 @@ const appear2 = keyframes`
 
 const Left = styled.div`
   height: 100%;
-  width: 45vw;
-  cursor: grab;
+  width: 50vw;
+  background-color: azure;
+  cursor: auto;
+  & > img {
+    height: 80vh;
+  }
+
+  & > div > div > canvas {
+    cursor: grab;
+  }
+
   @media only screen and (max-width: 450px) {
     width: 100%;
     height: 40%;
@@ -50,7 +59,7 @@ const Right = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  padding: 0 5vw;
+  padding: 0 2.5vw;
 
   & > h1 {
     font-size: 7vh;
@@ -108,8 +117,12 @@ const CloseBelt2 = styled.div`
     height: 5vh;
     width: 5vh;
     user-select: none;
-
+    transition: 300ms;
     cursor: pointer;
+  }
+
+  & > img:hover {
+    transform: scale(0.9);
   }
   @media only screen and (max-width: 450px) {
     display: flex;
@@ -125,9 +138,13 @@ const CloseBelt = styled.div`
     height: 5vh;
     width: 5vh;
     user-select: none;
-
+    transition: 300ms;
     cursor: pointer;
   }
+  & > img:hover {
+    transform: scale(0.9);
+  }
+
   @media only screen and (max-width: 450px) {
     display: none;
   }
@@ -154,10 +171,53 @@ const Przycisk = styled.button`
   }
 `;
 
+const SwitchTab = styled.div`
+  height: 7vh;
+  width: 15vw;
+  color: white;
+  z-index: 4;
+  position: absolute;
+  padding: 1vh 0;
+  bottom: 0;
+  cursor: auto;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > svg {
+    background-color: aqua;
+    width: 7vh;
+    height: 7vh;
+    margin: 0 1vw;
+    cursor: pointer;
+    transition: 300ms;
+    border-radius: 0.5rem;
+  }
+  & > svg:hover {
+    transform: scale(0.9);
+  }
+`;
+
+const Zdjecie = styled.div`
+  height: 100%;
+  width: 95%;
+  margin-left: 5%;
+  background-size: auto 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: auto;
+`;
+
 export default function Overlay(props) {
   const [active, setActive] = useState(true);
+  const [tab, setTab] = useState(props.czyPosiadaModel); //true - model, false - zdjecie
+  const [posiadaModel, setPosiadaModel] = useState(props.czyPosiadaModel); //true - posiada, false - nie posiada
+
   var tabela = props.pozycja;
   var skala = props.duze;
+  var pozycjamodelu = props.pozycjamodelu;
+  var zdjecie = props.zdjecie;
+
   console.log(tabela);
   function ModelView(x) {
     const { scene } = useGLTF(props.modelPath);
@@ -173,13 +233,37 @@ export default function Overlay(props) {
         />
 
         <PerspectiveCamera makeDefault fov={90} position={tabela} />
-        <pointLight position={[10, 10, 0]} intensity={1.5} />
-        <ambientLight />
-        <primitive object={scene} scale={skala} position={[0, 3, 0]} {...x} />
+
+        <pointLight position={[10, 3, 5]} intensity={0.8} />
+        <pointLight position={[-10, -5, -5]} intensity={0.8} />
+        <primitive
+          object={scene}
+          scale={skala}
+          position={pozycjamodelu}
+          {...x}
+        />
       </>
     );
   }
-
+  function ModelRender() {
+    return (
+      <Suspense>
+        <Canvas shadows style={{ zIndex: 0 }}>
+          <ModelView receiveShadow />
+          <color attach="background" args={["white"]} />
+        </Canvas>
+      </Suspense>
+    );
+  }
+  function ZdjRender() {
+    return (
+      <Zdjecie
+        style={{
+          backgroundImage: `url(${zdjecie})`,
+        }}
+      />
+    );
+  }
   return (
     <Main>
       <BACK
@@ -190,6 +274,27 @@ export default function Overlay(props) {
       />
       <UPPER>
         <Left>
+          {posiadaModel && (
+            <SwitchTab>
+              <BiCube
+                style={{
+                  backgroundColor: "#ff5945",
+                }}
+                onClick={() => {
+                  setTab(true);
+                }}
+              />
+              <BiImageAlt
+                style={{
+                  backgroundColor: "#3b8eaa",
+                }}
+                onClick={() => {
+                  setTab(false);
+                }}
+              />
+            </SwitchTab>
+          )}
+
           <CloseBelt2
             onClick={() => {
               setActive(false);
@@ -198,12 +303,10 @@ export default function Overlay(props) {
           >
             <img src={logo} />
           </CloseBelt2>
-          <Suspense>
-            <Canvas shadows style={{ zIndex: 0 }}>
-              <ModelView receiveShadow />
-              <color attach="background" args={["white"]} />
-            </Canvas>
-          </Suspense>
+
+          {/* wybor renderu */}
+
+          {tab ? <ModelRender /> : <ZdjRender />}
         </Left>
         <Right>
           <CloseBelt

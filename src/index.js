@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import Home from "./Home";
 import Kontakt from "./Kontakt";
+import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
@@ -13,12 +14,14 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Nav />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/kontakt" element={<Kontakt />} />
-      </Routes>
-      <Footer />
+      <ScrollToTop>
+        <Nav />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/kontakt" element={<Kontakt />} />
+        </Routes>
+        <Footer />
+      </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>
 );
